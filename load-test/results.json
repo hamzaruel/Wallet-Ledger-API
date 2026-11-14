@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-11-14T12:15:11.183Z",
+  "base_url": "http://host.docker.internal:8080",
+  "concurrency": 100,
+  "reports": [
+    {
+      "scenario": "mixed",
+      "requests": 5000,
+      "concurrency": 100,
+      "duration_seconds": 43.69,
+      "requests_per_second": 114.44,
+      "successful": 5000,
+      "failed": 0,
+      "p50_ms": 667.12,
+      "p99_ms": 4731.33,
+      "status_codes": {
+        "200": 5000
+      }
+    },
+    {
+      "scenario": "hot-user",
+      "requests": 5000,
+      "concurrency": 100,
+      "duration_seconds": 70.2,
+      "requests_per_second": 71.22,
+      "successful": 5000,
+      "failed": 0,
+      "p50_ms": 1245.5,
+      "p99_ms": 3358.6,
+      "status_codes": {
+        "200": 5000
+      }
+    }
+  ]
+}
