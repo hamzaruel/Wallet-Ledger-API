@@ -1,0 +1,35 @@
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: wallet_ledger
+      POSTGRES_USER: wallet_app
+      POSTGRES_PASSWORD: wallet_app_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U wallet_app -d wallet_ledger"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 5s
+    restart: unless-stopped
+
+  api:
+    build: .
+    environment:
+      NODE_ENV: production
+      PORT: 8080
+      API_TOKEN: ${API_TOKEN:-recruitment-test-token}
+      DATABASE_URL: postgres://wallet_app:wallet_app_password@db:5432/wallet_ledger
+      PG_POOL_MAX: 20
+      LOG_LEVEL: info
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

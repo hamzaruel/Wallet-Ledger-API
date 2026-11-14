@@ -1,0 +1,21 @@
+{
+  "name": "wallet-ledger-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Wallet Ledger API recruitment assessment project",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "pg": "^8.16.3",
+    "pino": "^9.9.0",
+    "pino-http": "^10.5.0"
+  }
+}
