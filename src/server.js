@@ -1,10 +1,12 @@
 const app = require('./app');
 const env = require('./config/env');
 const pool = require('./db/pool');
+const migrate = require('./db/migrate');
 const logger = require('./logger');
 
 async function start() {
   await pool.query('SELECT 1');
+  await migrate();
 
   const server = app.listen(env.port, () => {
     logger.info({ port: env.port }, 'Wallet Ledger API is listening');
@@ -37,3 +39,4 @@ start().catch(async (error) => {
   await pool.end().catch(() => {});
   process.exitCode = 1;
 });
+
