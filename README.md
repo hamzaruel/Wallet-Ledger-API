@@ -42,7 +42,7 @@ node --test .\tests\api.test.js
 
 `seed/seed.sql` is the assessment seed. It generates **10,915,000 ledger rows across 100,000 users** with an uneven distribution; the first ten users have 250,000 rows each. It refuses to run if `ledger` or `wallets` is non-empty. Run it only against a fresh assessment database, never against a populated database.
 
-Seed runtime: **5 min 19 s** for the full 10,915,000 rows on a Windows laptop with Docker Desktop (4 CPUs, 3.7 GB RAM). After seeding, both consistency checks returned 0 violations: wallet balances versus ledger sums, and no user with a negative running balance at any point. To seed a fresh database: `Get-Content seed\seed.sql | docker compose exec -T db psql -U wallet_app -d wallet_ledger`.
+Seed runtime: **1 min 42 s** for the full 10,915,000 rows, measured on a fresh empty database started from a clean clone, using the command below (Windows laptop, Docker Desktop, 4 CPUs, 3.7 GB RAM). An earlier run on the original database took 5 min 19 s. After seeding, both consistency checks returned 0 violations: wallet balances versus ledger sums, and no user with a negative running balance at any point. To seed a fresh database: `Get-Content seed\seed.sql | docker compose exec -T db psql -U wallet_app -d wallet_ledger`.
 
 
 
