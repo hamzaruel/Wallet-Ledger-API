@@ -12,10 +12,16 @@ function positiveInteger(value, fallback, name) {
   return parsed;
 }
 
+const apiToken = process.env.API_TOKEN;
+
+if (!apiToken) {
+  throw new Error('API_TOKEN is required');
+}
+
 const env = Object.freeze({
   nodeEnv: process.env.NODE_ENV ?? 'development',
   port: positiveInteger(process.env.PORT, 8080, 'PORT'),
-  apiToken: process.env.API_TOKEN ?? 'recruitment-test-token',
+  apiToken,
   databaseUrl:
     process.env.DATABASE_URL ??
     'postgres://wallet_app:wallet_app_password@localhost:5432/wallet_ledger',

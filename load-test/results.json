@@ -1,34 +1,111 @@
 {
-  "generated_at": "2026-11-14T12:15:11.183Z",
-  "base_url": "http://host.docker.internal:8080",
+  "generated_at": "2026-11-15T14:16:59.786Z",
+  "base_url": "http://localhost:8080",
   "concurrency": 100,
+  "ledger_rows_note": "measured against the main database (10M+ ledger rows)",
   "reports": [
     {
       "scenario": "mixed",
-      "requests": 5000,
       "concurrency": 100,
-      "duration_seconds": 43.69,
-      "requests_per_second": 114.44,
-      "successful": 5000,
-      "failed": 0,
-      "p50_ms": 667.12,
-      "p99_ms": 4731.33,
-      "status_codes": {
-        "200": 5000
+      "duration_seconds": 38.91,
+      "requests_per_second": 257.01,
+      "overall": {
+        "requests": 10000,
+        "success_2xx": 10000,
+        "expected_errors": 0,
+        "unexpected_failures": 0,
+        "p50_ms": 309.94,
+        "p99_ms": 1350.97,
+        "status_codes": {
+          "200": 10000
+        }
+      },
+      "per_endpoint": {
+        "balance": {
+          "requests": 3333,
+          "success_2xx": 3333,
+          "expected_errors": 0,
+          "unexpected_failures": 0,
+          "p50_ms": 306.52,
+          "p99_ms": 1136.32,
+          "status_codes": {
+            "200": 3333
+          }
+        },
+        "debit": {
+          "requests": 3333,
+          "success_2xx": 3333,
+          "expected_errors": 0,
+          "unexpected_failures": 0,
+          "p50_ms": 311.75,
+          "p99_ms": 1652.33,
+          "status_codes": {
+            "200": 3333
+          }
+        },
+        "credit": {
+          "requests": 3334,
+          "success_2xx": 3334,
+          "expected_errors": 0,
+          "unexpected_failures": 0,
+          "p50_ms": 312.17,
+          "p99_ms": 1713.91,
+          "status_codes": {
+            "200": 3334
+          }
+        }
       }
     },
     {
       "scenario": "hot-user",
-      "requests": 5000,
       "concurrency": 100,
-      "duration_seconds": 70.2,
-      "requests_per_second": 71.22,
-      "successful": 5000,
-      "failed": 0,
-      "p50_ms": 1245.5,
-      "p99_ms": 3358.6,
-      "status_codes": {
-        "200": 5000
+      "duration_seconds": 55.25,
+      "requests_per_second": 181.01,
+      "overall": {
+        "requests": 10000,
+        "success_2xx": 10000,
+        "expected_errors": 0,
+        "unexpected_failures": 0,
+        "p50_ms": 415.45,
+        "p99_ms": 2718.78,
+        "status_codes": {
+          "200": 10000
+        }
+      },
+      "per_endpoint": {
+        "balance": {
+          "requests": 3333,
+          "success_2xx": 3333,
+          "expected_errors": 0,
+          "unexpected_failures": 0,
+          "p50_ms": 341.2,
+          "p99_ms": 1723.61,
+          "status_codes": {
+            "200": 3333
+          }
+        },
+        "debit": {
+          "requests": 3333,
+          "success_2xx": 3333,
+          "expected_errors": 0,
+          "unexpected_failures": 0,
+          "p50_ms": 423.93,
+          "p99_ms": 2731.19,
+          "status_codes": {
+            "200": 3333
+          }
+        },
+        "credit": {
+          "requests": 3334,
+          "success_2xx": 3334,
+          "expected_errors": 0,
+          "unexpected_failures": 0,
+          "p50_ms": 508.26,
+          "p99_ms": 3232.81,
+          "status_codes": {
+            "200": 3334
+          }
+        }
       }
     }
   ]
